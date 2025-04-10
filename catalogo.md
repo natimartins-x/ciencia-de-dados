@@ -1,4 +1,4 @@
-# 📊 Catálogo de Dados - Projeto MVP Olist
+# Catálogo de Dados - Projeto MVP Olist
 
 Este catálogo apresenta uma descrição detalhada das tabelas utilizadas no projeto, com informações sobre colunas, chaves primárias (PK), chaves estrangeiras (FK), tipos de dados, descrições e domínios esperados para facilitar a compreensão do modelo de dados implementado.
 
