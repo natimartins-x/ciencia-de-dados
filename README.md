@@ -61,6 +61,23 @@ PySpark (transformação e leitura de dados)
 SQL (consultas e análise de negócio)
 Formato Delta Lake (armazenamento de tabelas com versionamento)
 
+## Análise de Qualidade dos Dados
+
+Antes das análises de negócio, foi realizada uma checagem básica de qualidade na tabela `gold_orders_analytics`. Os principais pontos observados foram:
+
+- **Total de registros:** 118.310  
+- **Pedidos únicos (`order_id`):** 98.666  
+- **Avaliações ausentes (`review_score` nulo):** 978 registros (~0,8%)  
+- **Pagamentos ausentes (`payment_value` nulo):** apenas 3 registros  
+- **Categorias de produto ausentes:** 1.734 registros  
+- **Notas fora do domínio esperado (1 a 5):** **0 registros**  
+- **Duplicidade de `order_id`:** identificada, **mas esperada** devido à granularidade por item de pedido
+
+A tabela está modelada em nível de item (`order_id` + `product_id`), portanto um mesmo pedido pode aparecer mais de uma vez se contiver múltiplos produtos.
+
+Conclui-se que os dados são consistentes e adequados para as análises propostas.
+
+
 ## Principais Conclusões
 
 Clientes insatisfeitos estão concentrados nas categorias mais populares, mas algumas menos conhecidas têm taxa de reclamação proporcional muito alta.
