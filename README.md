@@ -3,13 +3,27 @@
 Este projeto foi desenvolvido como parte da disciplina de MVP do curso de Pós-Graduação em Ciência de Dados e Analytics da PUC-Rio. 
 O objetivo foi construir um pipeline de dados completo, utilizando a arquitetura de camadas Bronze, Silver e Gold, com análises feitas na plataforma Databricks.
 
-## Fonte dos Dados
+## Coleta dos Dados
 
-Utilizamos os dados públicos da empresa Olist, disponíveis em arquivos CSV, no Kaggle, que representam pedidos de e-commerce no Brasil. Os arquivos foram carregados no Databricks e armazenados em camadas de persistência.
+Os dados utilizados neste projeto foram obtidos do Kaggle – Brazilian E-Commerce Public Dataset by Olist, um conjunto de dados reais e anonimizados fornecido pela empresa Olist, a maior loja de departamentos presente em marketplaces no Brasil.
+
+O dataset contém informações sobre aproximadamente 100 mil pedidos realizados entre 2016 e 2018, abrangendo diversas dimensões do e-commerce, como:
+
+Status do pedido
+Informações de frete
+Avaliações dos clientes
+Pagamentos
+Localização de clientes e vendedores
+Características dos produtos
+Os arquivos foram baixados em formato .csv e carregados manualmente na plataforma Databricks Community Edition, utilizando o menu de upload de dados. Após o upload, os arquivos foram movidos para diretórios organizados no DBFS e processados na camada Bronze do pipeline de dados.
+
+A coleta também inclui o dataset de geolocalização por CEP, permitindo análises espaciais, e pode ser integrado com o dataset de funil de marketing da Olist, disponível separadamente.
+
+Todos os dados são anonimizados e foram liberados para uso público com fins educacionais e de pesquisa.
 
 ## Objetivo
 
-Investigar os principais fatores que influenciam a satisfação dos clientes no e-commerce brasileiro, com base nas avaliações de pedidos da Olist.
+Este projeto tem como objetivo analisar a experiência do cliente a partir de dados de e-commerce da Olist, com foco em identificar padrões de satisfação e insatisfação relacionados a fatores como tempo de entrega, forma de pagamento, valor do pedido, localização geográfica e tipo de produto adquirido.
 
 ### Perguntas de negócio
 1. Qual o perfil dos pedidos com melhores e piores avaliações?
@@ -54,6 +68,28 @@ Tempo de entrega é o fator com maior correlação negativa com a nota de avalia
 Pedidos de maior valor tendem a receber notas mais baixas.
 Regiões Norte e Nordeste, além do RJ, apresentaram as maiores taxas proporcionais de insatisfação.
 Forma de pagamento não influencia significativamente na satisfação do cliente.
+
+## Autoavaliação
+Durante o desenvolvimento deste MVP, acredito que consegui atingir com sucesso os objetivos definidos inicialmente: construir um pipeline de dados completo utilizando a arquitetura em camadas Bronze, Silver e Gold, com extração, transformação e carga dos dados no Databricks, culminando em análises que respondem a perguntas relevantes de negócio no contexto de e-commerce.
+
+Apesar de já ter experiência com análise de dados, este projeto representou um grande desafio por exigir habilidades típicas de Engenharia de Dados, especialmente na modelagem e organização dos dados em múltiplas camadas, uso de Delta Lake, e aplicação correta das práticas de ETL em uma plataforma de nuvem.
+
+As principais dificuldades enfrentadas foram:
+
+Familiarização com a estrutura do Databricks Community Edition, incluindo armazenamento e caminhos corretos no DBFS.
+A configuração do Git para manipulação de arquivos grandes.
+Adaptação ao uso de PySpark e SQL sem recorrer a ferramentas mais comuns como pandas.
+
+Por outro lado, o projeto me proporcionou grande aprendizado técnico e metodológico, além de reforçar a importância da organização dos dados para análises confiáveis. Também desenvolvi habilidades práticas de versionamento com Git e GitHub, e organização de repositório para projetos de dados.
+
+Como trabalhos futuros, pretendo:
+
+Implementar visualizações das análises com bibliotecas como matplotlib ou seaborn.
+Expandir a modelagem com métricas de rentabilidade por categoria e região.
+Automatizar parte do pipeline com workflows no Databricks ou scripts agendados.
+Criar uma versão em inglês e incluir esse projeto no meu portfólio público.
+
+Finalizo o projeto satisfeita com a entrega e com a evolução pessoal e profissional proporcionada por essa experiência.
 
 ## Estrutura de Diretórios (GitHub)
 
